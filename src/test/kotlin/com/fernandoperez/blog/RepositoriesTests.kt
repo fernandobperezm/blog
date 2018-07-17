@@ -1,5 +1,9 @@
-package org.fernandoperez.blog
+package com.fernandoperez.blog
 
+import com.fernandoperez.blog.models.Article
+import com.fernandoperez.blog.models.User
+import com.fernandoperez.blog.repositories.ArticleRepository
+import com.fernandoperez.blog.repositories.UserRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -18,7 +22,7 @@ class RepositoriesTests(@Autowired val entityManager: TestEntityManager,
     fun `When findById then return Article`() {
         val fernando = User("fernandotest", "Fernando", "Pérez", "Description for fernando")
         entityManager.persist(fernando)
-        val article = Article("Spring")
+        val article = Article("Spring", "Fernando", "content", fernando)
         entityManager.persist(article)
         entityManager.flush()
 

@@ -1,4 +1,4 @@
-package org.fernandoperez.blog.models
+package com.fernandoperez.blog.models
 
 import java.time.LocalDateTime
 import javax.persistence.*
