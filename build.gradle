@@ -52,6 +52,8 @@ dependencies {
 	compile('com.fasterxml.jackson.module:jackson-module-kotlin')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
+	compile("com.atlassian.commonmark:commonmark:0.11.0")
+    compile("com.atlassian.commonmark:commonmark-ext-autolink:0.11.0")
 	runtime('com.h2database:h2')
 	testCompile('org.springframework.boot:spring-boot-starter-test') {
 		exclude module: 'junit'
