@@ -7,11 +7,13 @@ import com.fernandoperez.blog.repositories.UserRepository
 import com.samskivert.mustache.Mustache
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 import sun.tools.jar.CommandLine
 
 @SpringBootApplication
+@EnableConfigurationProperties(BlogProperties::class)
 class BlogApplication{
   @Bean
   fun mustacheCompiler(loader: Mustache.TemplateLoader?) =

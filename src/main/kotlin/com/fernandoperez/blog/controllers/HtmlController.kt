@@ -1,5 +1,6 @@
 package com.fernandoperez.blog.controllers.web
 
+import com.fernandoperez.blog.BlogProperties
 import com.fernandoperez.blog.MarkdownConverter
 import com.fernandoperez.blog.models.Article
 import com.fernandoperez.blog.models.User
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable
 @Controller
 class HtmlController(
         private val repository: ArticleRepository,
-        private val markdownConverter: MarkdownConverter) {
+        private val markdownConverter: MarkdownConverter,
+        private val properties: BlogProperties) {
 
     @GetMapping("/")
     fun blog(model: Model): String {
-        model["title"] = "Blog" // If we don't import org.springframework.ui.set we must write model.addAttribute("title", "Blog")
+        model["title"] = properties.title // If we don't import org.springframework.ui.set we must write model.addAttribute("title", "Blog")
+        model["banner"] = properties.banner
         model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }
         return "blog"
     }

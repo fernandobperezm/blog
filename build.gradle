@@ -20,6 +20,7 @@ apply plugin: 'kotlin-jpa'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'kotlin-kapt'
 
 group = 'com.fernandoperez'
 version = '0.0.1-SNAPSHOT'
@@ -58,6 +59,8 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test') {
 		exclude module: 'junit'
 	}
+    testCompile("com.nhaarman:mockito-kotlin:1.5.0")
 	testImplementation('org.junit.jupiter:junit-jupiter-api')
 	testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
